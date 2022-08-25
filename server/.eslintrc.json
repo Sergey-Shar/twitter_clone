@@ -1,0 +1,25 @@
+
+{
+    "parser":"@babel/eslint-parser",
+    "extends": ["prettier", "eslint:recommended", "plugin:node/recommended", "plugin:@typescript-eslint/recommended"],
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "requireConfigFile": false,
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "impliedStrict": true,
+        "classes": true
+      }
+    },
+    "env": {
+      "node": true,
+      "jest/globals": true,
+      "es6": true
+    },
+    "plugins": ["prettier", "jest"],
+    "rules": {
+      "no-process-exit": 0
+    },
+    "settings": {}
+
+  }
