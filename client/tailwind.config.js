@@ -5,8 +5,9 @@ module.exports = {
   theme: {
     colors: {
       chat: 'rgb(239,242,245)',
-      black: 'rgb(45,48,51)',
-      blue: 'rgb(28,104,255)',
+      'gray-opacity': 'rgb(92%, 89%, 89%, 0.3)',
+      black:'rgb(0,0,0)',
+      blue: 'rgb(13,154,251)',
       'dark-blue': 'rgb(34,51,133)',
       purple: '#7e5bef',
       pink: '#FAEBD7',
@@ -18,6 +19,9 @@ module.exports = {
       white: 'rgb(255,255,255)',
       'gray-light': '#d3dce6',
       red: 'rgb(234,33,25)',
+    },
+    fontFamily: {
+      'sans': ['Roboto', 'sans-serif'],
     },
     extend: {},
   },

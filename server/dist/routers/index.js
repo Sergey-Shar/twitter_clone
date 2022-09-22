@@ -1,0 +1,12 @@
+"use strict";
+const expressRout = require("express");
+const bodyParser = require("body-parser");
+const appController = require("../controllers");
+const router = expressRout.Router();
+router.post('/registration', appController.registrationNewUser);
+router.post('/login', bodyParser.urlencoded({ extended: false }), appController.login);
+router.post('/logout', appController.logout);
+router.get('/activate/:link');
+router.get('/refresh', appController.refresh);
+router.get('users', appController.users);
+module.exports = router;
