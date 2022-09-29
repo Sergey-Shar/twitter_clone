@@ -1,4 +1,4 @@
-import { EMAIL } from 'common/constants';
+import { EMAIL } from 'shared/constants';
 import * as yup from 'yup';
 
 export const loginValidationSchema = yup.object().shape({

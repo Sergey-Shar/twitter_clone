@@ -1,9 +1,9 @@
 import { Context } from 'app/context';
-import { Form } from 'common/ui';
-import { FormInput } from 'common/ui';
+import { Form } from 'shared/ui';
+import { FormInput } from 'shared/ui';
 import debounce from 'debounce';
-import { useValidate } from 'common/hooks';
-import { FC, useContext, useRef, useState } from 'react';
+import { useValidate } from 'shared/hooks';
+import { FC, useContext, useState } from 'react';
 import { SubmitHandler } from 'react-hook-form';
 
 import { ILoginValue } from './models';
@@ -14,11 +14,10 @@ export const LoginForm: FC = () => {
   const { authStore } = useContext(Context);
   const [showPass, setShowPass] = useState(true);
 
-
-  const { handleSubmit, register, errors, isValid, reset, trigger } =
+  const { handleSubmit, register, errors, reset, trigger } =
 		useValidate<ILoginValue>(loginValidationSchema, 'onBlur');
 
-  const onLogin:SubmitHandler<ILoginValue> = (data) => {
+  const onLogin: SubmitHandler<ILoginValue> = (data) => {
     authStore.login(data);
     reset();
   };

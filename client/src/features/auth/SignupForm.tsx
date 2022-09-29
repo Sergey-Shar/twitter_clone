@@ -1,7 +1,7 @@
 import { Context } from 'app/context';
-import { Form } from 'common/ui';
-import { FormInput } from 'common/ui';
-import { useValidate } from 'common/hooks';
+import { Form } from 'shared/ui';
+import { FormInput } from 'shared/ui';
+import { useValidate } from 'shared/hooks';
 import { FC, useContext, useState } from 'react';
 import { SubmitHandler } from 'react-hook-form';
 import debounce from 'debounce';
@@ -13,7 +13,7 @@ import { IconPassword } from './IconPass';
 export const SignupForm: FC = () => {
   const { authStore } = useContext(Context);
   const [showPass, setShowPass] = useState(true);
-  
+
   const { handleSubmit, register, errors, reset, isValid, trigger } =
 		useValidate<ISignupValue>(signupValidationSchema, 'onBlur');
 
@@ -57,9 +57,11 @@ export const SignupForm: FC = () => {
         isError={!!errors?.password}
         register={register('password', {
           onChange: debounce(async () => await trigger('password'), 500),
-        })}
-      >
-        <IconPassword showPass={showPass} onClick={() => setShowPass(!showPass)}/>
+        })}>
+        <IconPassword
+          showPass={showPass}
+          onClick={() => setShowPass(!showPass)}
+        />
       </FormInput>
     </Form>
   );

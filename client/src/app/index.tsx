@@ -1,7 +1,5 @@
-import { BrowserRouter } from 'react-router-dom';
-import { Suspense, useContext, useEffect, useLayoutEffect, useRef } from 'react';
+import { useContext, useEffect } from 'react';
 import { SnackbarProvider } from 'notistack';
-import { Progress } from 'common/ui/progress/Progress';
 import { observer } from 'mobx-react-lite';
 
 import { AppContext, Context } from './context';

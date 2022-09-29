@@ -1,10 +1,9 @@
-import { FC } from 'react';
+import { FC, FormEventHandler } from 'react';
 
 import { styles } from './styles';
-
 interface FormProps {
 	endpoint?: string;
-  onSubmit: any;
+  onSubmit: FormEventHandler<HTMLFormElement>
 	children?: React.ReactNode;
   textBtn?: string;
   disabled?: boolean;

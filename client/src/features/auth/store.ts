@@ -25,7 +25,7 @@ export class AuthStore {
     this.user = user;
   }
 
-  setError(error: string ) {
+  setError(error: string) {
     this.error = error;
   }
 
@@ -33,30 +33,32 @@ export class AuthStore {
     this.pending = bool;
   }
 
-  async login(data:ILoginValue ) {
+  async login(data: ILoginValue) {
     this.setPending(true);
     try {
       const response = await Auth.login(data);
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
       this.setUser(response.data.user);
-    } catch (error:any) {
-      this.setError(error.response.data);
-    }finally {
+    } catch (error) {
+      const e = error as AxiosError;
+      this.setError(e?.message);
+    } finally {
       this.setPending(false);
     }
   }
 
-  async registration(data:ISignupValue) {
+  async registration(data: ISignupValue) {
     this.setPending(true);
     try {
       const response = await Auth.registaration(data);
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
       this.setUser(response.data.user);
-    } catch (error: any) {
-      this.setError(error.response.data);
-    }finally {
+    } catch (error) {
+      const e = error as AxiosError;
+      this.setError(e?.message);
+    } finally {
       this.setPending(false);
     }
   }
@@ -77,8 +79,9 @@ export class AuthStore {
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
       this.setUser(response.data.user);
-    } catch (error: any) {
-      this.setError(error.message);
+    } catch (error) {
+      const e = error as AxiosError;
+      this.setError(e?.message);
     } finally {
       this.setPending(false);
     }

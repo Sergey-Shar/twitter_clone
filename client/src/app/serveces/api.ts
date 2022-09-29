@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-export const BASE_URL = process.env.REACT_APP_BASE_URL_API;
+export const BASE_URL = process.env.REACT_APP_BASE_URL_API as string;
 
 export const apiAxios = axios.create({
   withCredentials: true,
@@ -9,9 +9,10 @@ export const apiAxios = axios.create({
 
 apiAxios.interceptors.request.use(
   (config: AxiosRequestConfig): AxiosRequestConfig => {
-		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-		config!.headers!.Autorization = `Bearer ${localStorage.getItem('token')}`;
-		return config;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    config.headers.Autorization = `Bearer ${localStorage.getItem('token')}`;
+    return config;
   },
   (error) => {
     return Promise.reject(error);

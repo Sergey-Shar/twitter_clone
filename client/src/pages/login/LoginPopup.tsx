@@ -1,7 +1,7 @@
 import { Context } from 'app/context';
-import { Popup } from 'common/ui';
-import { Progress } from 'common/ui/progress/Progress';
-import { useAlert } from 'common/hooks/alert';
+import { Popup } from 'shared/ui';
+import { Progress } from 'shared/ui/progress/Progress';
+import { useAlert } from 'shared/hooks/alert';
 import { LoginForm } from 'features/auth';
 import { observer } from 'mobx-react-lite';
 import { useContext, useEffect } from 'react';

@@ -1,4 +1,4 @@
-import { Progress } from 'common/ui/progress/Progress';
+import { Progress } from 'shared/ui/progress/Progress';
 import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 

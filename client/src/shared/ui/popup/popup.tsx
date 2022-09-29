@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 
 import { styles } from './styles';
-
 interface PopupProps {
 	children: React.ReactNode;
 }

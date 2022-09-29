@@ -7,7 +7,7 @@ const tokenService = require("../services/token-service");
 const UserDto = require("../dtos");
 
 class AppController {
-  async registrationNewUser(req: any, res: any, next: any) {
+  async registrationNewUser(req: any, res: any) {
     const { email, username, password } = req.body.data;
 
     const userDto = new UserDto(email, username);
@@ -43,11 +43,9 @@ class AppController {
   }
 
   async login(req: any, res: any) {
-
     const { email, password } = req.body.data;
 
     const user = await userService.findUserByEmail(email);
-
 
     if (!user) {
       res.status(401).send(`пользователя с почтой ${email} не существует`);
@@ -75,25 +73,23 @@ class AppController {
         });
       }
     }
-}
+  }
 
   async logout(req: any, res: any, next: any) {
     const { refreshToken } = req.cookies;
 
     try {
       await userService.logout(refreshToken);
-      res.clearCookie('refreshToken')
+      res.clearCookie("refreshToken");
       res.json({
         refreshToken: null,
-        accessToken: null
-      })
-      }
-     catch (error) {
+        accessToken: null,
+      });
+    } catch (error) {
       next(error);
     }
   }
   async refresh(req: any, res: any, next: any) {
-
     try {
       const { refreshToken } = req.cookies;
       const user = await userService.refreshToken(refreshToken);
@@ -112,17 +108,16 @@ class AppController {
         refreshToken: tokens.refreshToken,
         accessToken: tokens.accessToken,
       });
-
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
 
   async posts(req: any, res: any, next: any) {
     try {
-      console.log(req.headers.authorization)
+      console.log(req.headers.authorization);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
 }

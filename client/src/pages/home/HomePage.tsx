@@ -6,10 +6,10 @@ const HomePage = () => {
   const { authStore } = useContext(Context);
   
   return (
-    <>
-      <h1>{authStore.isAuth && `пользователь ${authStore.user.username} в сети`}</h1>
+    <div>
       <button onClick={() => authStore.logout()}>выйти</button>
-    </>
+
+    </div>
   );
 };
 

@@ -1,7 +1,6 @@
 import { AxiosResponse } from 'axios';
 import { ILoginValue, ISignupValue } from 'features/auth/models';
 
-
 import { apiAxios } from './api';
 import { IAuthResponse } from './models';
 
